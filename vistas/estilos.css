@@ -1,0 +1,256 @@
+/* Comunes */
+body {
+  margin: 0;
+  padding: 2.5rem 1.25rem;
+  font-family: Verdana, sans-serif;
+  color: #17323b;
+  background-image: url("img/fondo.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.tarjeta {
+  margin: 0 auto;
+  padding: 1.875rem;
+  background: #fdf9f1;
+  border-radius: 16px;
+}
+
+h1 {
+  margin: 0 0 0.625rem 0;
+  color: #1b5566;
+}
+
+.ayuda {
+  margin: 0 0 1.25rem 0;
+}
+
+.campo {
+  display: block;
+  margin-bottom: 0.375rem;
+  font-weight: bold;
+  color: #1b5566;
+}
+
+select {
+  padding: 0.375rem;
+  border: 1px solid #2a6f82;
+  border-radius: 6px;
+  background: #ffffff;
+}
+
+input[type=submit] {
+  padding: 0.75rem 1.75rem;
+  border: 0;
+  border-radius: 8px;
+  background: #1b5566;
+  color: #ffffff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.acciones {
+  margin-top: 1.5rem;
+  text-align: right;
+}
+
+/* index.html */
+.estrecha {
+  max-width: 400px;
+  margin-top: 6.25rem;
+}
+
+select.grande {
+  width: 90%;
+  padding: 0.75rem;
+}
+
+/* horario.html (todo visible sin scroll) */
+body.horario {
+  padding: 0;
+}
+
+/* centrado horizontal y vertical */
+.ancha {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 90%;
+  max-width: 1150px;
+  height: fit-content;
+  margin: auto;
+  padding: 1.125rem 1.5rem;
+}
+
+.cabecera {
+  margin-bottom: 0.625rem;
+}
+
+.ancha h1 {
+  margin: 0;
+  font-size: 1.75rem;
+}
+
+.tabla-scroll {
+  border: 1px solid #d9d3c7;
+  border-radius: 10px;
+  background: #ffffff;
+}
+
+table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 0.25rem;
+  border: 1px solid #d9d3c7;
+}
+
+thead th {
+  background: #1b5566;
+  color: #ffffff;
+  font-size: 0.875rem;
+}
+
+thead th:first-child {
+  width: 8.7%;
+}
+
+tbody th {
+  background: #fdf9f1;
+  color: #1b5566;
+  font-size: 0.8125rem;
+}
+
+td select {
+  display: block;
+  width: 88%;
+  margin: 0 auto 0.1875rem auto;
+  padding: 0.1875rem;
+  font-size: 0.8125rem;
+}
+
+td select.profesor {
+  margin-bottom: 0;
+}
+
+.recreo th {
+  padding: 0.3125rem;
+  background: #ffc4ac;
+  color: #1b5566;
+}
+
+.bloqueado {
+  background: #e4e4e2;
+  text-align: center;
+}
+
+.ancha .acciones {
+  margin-top: 0.875rem;
+}
+
+a.volver {
+  margin-right: 1.125rem;
+  color: #1b5566;
+  font-weight: bold;
+}
+
+@media (width <=600px) {
+
+  table,
+  tbody,
+  tr,
+  th,
+  td {
+    display: block;
+  }
+
+  td{
+     background-color: rgb(253, 249, 241)
+  }
+  thead {
+    display: none
+  }
+
+  td:nth-child(2)::before {
+    content: "Lunes";
+  }
+
+  td:nth-child(3)::before {
+    content: "Martes";
+  }
+
+  td:nth-child(4)::before {
+    content: "Miércoles";
+  }
+
+  td:nth-child(5)::before {
+    content: "Jueves";
+  }
+
+  td:nth-child(6)::before {
+    content: "Viernes";
+  }
+
+  body.horario {
+    padding: 1rem;
+  }
+
+  .ancha {
+    position: static;
+    /* width: auto; */
+    height: auto;
+    margin: 0;
+    padding: 1rem;
+  }
+
+   tbody tr {
+    margin: 0 0 0.75rem 0;
+    padding: 0 0 0.25rem 0;                 /* sin padding */
+    border: 1px solid #d9d3c7;
+    border-radius: 10px;
+    background: #ffffff;
+    overflow: hidden;           /* recorta el fondo en las esquinas redondeadas */
+  }
+
+    tbody th {
+    padding: 0.5rem;
+    border: 0;
+    background: #1b5566;
+    color: #ffffff;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+    .acciones,
+  .ancha .acciones {
+    text-align: center;      /* centra el enlace y el botón */
+  }
+
+
+  td {
+    padding: 0.5rem 0.75rem;    /* el espacio va aquí */
+    background: #f1f7f9;        /* el color de fondo */
+    border: 0;
+    border-bottom: 1px solid #d9d3c7;
+  }
+
+  .bloqueado{
+    display: none;
+  }
+
+  td {
+  background: #f1f7f9;
+  border-left: 4px solid #1b5566;
+}
+
+td:nth-child(odd)  { background: #f1f7f9; }
+td:nth-child(even) { background: #ffffff; }
+
+}
