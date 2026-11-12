@@ -16,6 +16,7 @@ class ClaseModelo extends Conexion {
 
     // Clases que todavía no tienen ningún horario
     public function listarSinHorario() {
+        // Subconsulta para sacar las clases que NO tienen horario
         $sql = "SELECT idClases, nombre FROM clases
                 WHERE idClases NOT IN (SELECT idClases FROM horario)
                 ORDER BY nombre";

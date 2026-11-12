@@ -19,7 +19,7 @@ class HorarioControlador {
     public function horario() {
         $idClases = (int)($_POST['idClases'] ?? 0);
 
-        // Si no eligió clase, volvemos al paso 1
+        // Si no eligió clase, volvemos al paso 1F
         if ($idClases == 0) {
             $this->formulario();
             return; 
@@ -33,12 +33,14 @@ class HorarioControlador {
 
     // Paso 3: guardar
     public function alta() {
+
+        // Paso 1: cargamos el idClases, inicializamos variables necesarias
         $idClases = (int)($_POST['idClases'] ?? 0);
 
         $dias  = ['L' => 'lunes', 'M' => 'martes', 'X' => 'miercoles', 'J' => 'jueves', 'V' => 'viernes'];
         $filas = [];
         $error = false;
-
+        // Paso 2: Bucle, recorremos $_POST en busca de cada celda
         foreach ($dias as $letra => $nombreDia) {
             for ($hora = 1; $hora <= 7; $hora++) {
                 $asig = $_POST[$nombreDia . "_" . $hora . "_asignatura"] ?? "";
@@ -53,7 +55,7 @@ class HorarioControlador {
                     $error = true;
                     continue;
                 }
-
+        // Paso 3: Creamos un array con todos los datos de la celda para posteriomente insertar en la BD
                 $filas[] = [
                     'dia' => $letra,
                     'hora' => $hora,
@@ -68,7 +70,7 @@ class HorarioControlador {
         if (count($filas) == 0) {
             $error = true;
         }
-
+        // Si da error, mostramos un mensaje de error, sino, informamos de que todo esta correcto
         if (!$error && (new HorarioModelo())->altaVarias($filas)) {
             $this->mensaje = "Horario guardado correctamente";
             $this->formulario();

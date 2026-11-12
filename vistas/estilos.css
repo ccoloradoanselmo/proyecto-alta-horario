@@ -4,11 +4,12 @@ body {
   padding: 2.5rem 1.25rem;
   font-family: Verdana, sans-serif;
   color: #17323b;
-  background-image: url("img/fondo.jpg");
+  background-image: url("../img/fondo.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
 }
+
 
 .tarjeta {
   margin: 0 auto;
