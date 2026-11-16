@@ -6,34 +6,35 @@ require_once "modelos/HorarioModelo.php";
 
 class HorarioControlador {
     public $vista;
-    public $datos = [];
     public $mensaje = "";
 
     // Paso 1: elegir clase
-    public function formulario() {
-        $this->datos['clases'] = (new ClaseModelo())->listarSinHorario();
+    public function formulario(): array {
         $this->vista = "vformulario";
+        return [
+            'clases' => (new ClaseModelo())->listarSinHorario()
+        ];
     }
 
     // Paso 2: tabla del horario de la clase elegida
-    public function horario() {
+    public function horario(): array {
         $idClases = (int)($_POST['idClases'] ?? 0);
 
-        // Si no eligió clase, volvemos al paso 1F
+        // Si no eligió clase, volvemos al paso 1
         if ($idClases == 0) {
-            $this->formulario();
-            return; 
+            return $this->formulario();
         }
 
-        $this->datos['idClases'] = $idClases;
-        $this->datos['asignaturas'] = (new AsignaturaModelo())->listarPorClase($idClases);
-        $this->datos['profesores'] = (new ProfesorModelo())->listarPorClase($idClases);
         $this->vista = "vhorario";
+        return [
+            'idClases' => $idClases,
+            'asignaturas' => (new AsignaturaModelo())->listarPorClase($idClases),
+            'profesores' => (new ProfesorModelo())->listarPorClase($idClases)
+        ];
     }
 
     // Paso 3: guardar
-    public function alta() {
-
+    public function alta(): array {
         // Paso 1: cargamos el idClases, inicializamos variables necesarias
         $idClases = (int)($_POST['idClases'] ?? 0);
 
@@ -73,10 +74,10 @@ class HorarioControlador {
         // Si da error, mostramos un mensaje de error, sino, informamos de que todo esta correcto
         if (!$error && (new HorarioModelo())->altaVarias($filas)) {
             $this->mensaje = "Horario guardado correctamente";
-            $this->formulario();
+            return $this->formulario();
         } else {
             $this->mensaje = "Ha habido un error";
-            $this->horario();
+            return $this->horario();
         }
     }
 }

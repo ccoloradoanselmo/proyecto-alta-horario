@@ -26,10 +26,9 @@ if (!method_exists($obj, $metodo)) {
     die("Método no encontrado");
 }
 
-// 4. Ejecutamos el método (él decide la vista y rellena los datos)
-$obj->$metodo();
+// 4. Ejecutamos el método (él decide la vista y retorna los datos)
+$datos = $obj->$metodo();
 
 // 5. Pasamos los datos y el mensaje a la vista y la cargamos
-$datos = $obj->datos;
 $mensaje = $obj->mensaje;
-require RUTA_VISTAS . $obj->vista . ".php";
+require RUTA_VISTAS . $obj->vista;
