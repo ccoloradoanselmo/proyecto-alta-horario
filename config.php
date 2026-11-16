@@ -1,7 +1,7 @@
 <?php
 
-define('CONTROLADOR', 'Horario');
-define('METODO','formulario');
+define('CONTROLADOR', 'Inicio');
+define('METODO','inicio');
 define('RUTA_RAIZ', __DIR__);
 define('RUTA_CONTROLADOR', __DIR__ .'/controladores/');
 define('RUTA_MODELOS', __DIR__ .'/modelos/');
