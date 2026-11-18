@@ -10,7 +10,7 @@ class HorarioControlador {
 
     // Paso 1: elegir clase
     public function formulario(): array {
-        $this->vista = "vformulario";
+        $this->vista = "vformulario.php";
         return [
             'clases' => (new ClaseModelo())->listarSinHorario()
         ];
@@ -25,7 +25,7 @@ class HorarioControlador {
             return $this->formulario();
         }
 
-        $this->vista = "vhorario";
+        $this->vista = "vhorario.php";
         return [
             'idClases' => $idClases,
             'asignaturas' => (new AsignaturaModelo())->listarPorClase($idClases),

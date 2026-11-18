@@ -7,7 +7,8 @@
   <link rel="stylesheet" href="./vistas/estilos.css">
 </head>
 <body>
-  <form class="tarjeta estrecha" action="index.php" method="post">
+  <main class="login-page">
+    <form class="tarjeta estrecha" action="index.php" method="post">
     <input type="hidden" name="controlador" value="Horario">
     <input type="hidden" name="metodo" value="horario">
 
@@ -32,5 +33,6 @@
       <input type="submit" value="Siguiente">
     </div>
   </form>
+  </main>
 </body>
 </html>
